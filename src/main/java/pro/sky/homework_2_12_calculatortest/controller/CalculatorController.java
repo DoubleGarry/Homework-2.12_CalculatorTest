@@ -1,7 +1,7 @@
 package pro.sky.homework_2_12_calculatortest.controller;
 
 import org.springframework.web.bind.annotation.*;
-import pro.sky.homework_2_12_calculatortest.exception.NoArgumentException;
+import pro.sky.homework_2_12_calculatortest.exception.DivideByZeroException;
 import pro.sky.homework_2_12_calculatortest.service.CalculatorService;
 
 @RestController
@@ -41,11 +41,8 @@ public class CalculatorController {
                            @RequestParam("num2") Integer num2) {
         return num1 + "/" + num2 + "=" + calculatorService.division(num1, num2);
     }
-    @ExceptionHandler({NoArgumentException.class})
-    public String nullException() {
-        return "Значение не задано";
-    }
-    @ExceptionHandler({IllegalArgumentException.class})
+
+    @ExceptionHandler({DivideByZeroException.class})
     public String zeroException() {
         return "Делить на ноль нельзя";
     }
