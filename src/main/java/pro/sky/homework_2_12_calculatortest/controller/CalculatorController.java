@@ -5,6 +5,7 @@ import pro.sky.homework_2_12_calculatortest.exception.DivideByZeroException;
 import pro.sky.homework_2_12_calculatortest.service.CalculatorService;
 
 @RestController
+
 @RequestMapping(value = "/calculator")
 public class CalculatorController {
     private CalculatorService calculatorService;
